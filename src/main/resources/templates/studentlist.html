@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="public/fragments/head-elements.html">
+    <meta charset="UTF-8">
+    <title>Student List</title>
+</head>
+<body>
+<header th:replace ="public/fragments/header :: header"></header>
+
+<div>
+</div>
+<br>
+<div class="row"> <a th:href="@{/eRegistrar/student-list/new}" class="btn btn-primary" style="width: 150px;margin-left: 40px">Add Student</a></div>
+<br/>
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Student Number</th>
+        <th scope="col">First Name</th>
+        <th scope="col">Middle Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Cgpa</th>
+        <th scope="col">Date of Enrollment</th>
+        <th scope="col">Action</th>
+
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each ="student: ${students}">
+        <td th:text="${student.studentId}"></td>
+        <td th:text="${student.studentNumber}"></td>
+        <td th:text="${student.firstName}"></td>
+        <td th:text="${student.middleName}"></td>
+        <td th:text="${student.lastName}"></td>
+        <td th:text="${student.cgpa}"></td>
+        <td th:text="${student.dateOfEnrollment}"></td>
+        <td ><a th:href="@{/eRegistrar/student-list/{studentId} (studentId=${student.studentId})}"><button class="btn btn-primary">Update</button>
+        </a>
+            <a th:href="@{/eRegistrar/student-list/{studentId}/delete(studentId=${student.studentId})}">
+                <button class="btn btn-danger">Delete</button>
+            </a>
+
+        </td>
+
+<!--            <a th:href="@{/cars/{id}/reserve(id=${cars.id})}" class="btn btn-primary">Rent Car</a>-->
+<!--        </td>-->
+    </tr>
+
+    </tbody>
+</table>
+</div>
+
+
+
+<footer th:replace ="public/fragments/footer :: footer"></footer>
+</body>
+</html>

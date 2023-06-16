@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org" >
+<head th:replace ="public/fragments/head-elements">
+    <meta charset="UTF-8">
+    <title>Add new Student</title>
+</head>
+<body>
+<header th:replace ="~{public/fragments/header :: header}"></header>
+<div>
+    <br>
+
+    <h1 class="text-center">Update Student</h1>
+    <div class="card-body">
+        <form th:action="@{/eRegistrar/student-list/{studentId}(studentId=${student.studentId})}" th:object="${student}" method="post">
+
+        <div class="form-group">
+                <label>Id</label>
+                <input type="text"
+                       name="Id"
+                       th:field="${student.studentId}"
+                       class="form-control"
+                       placeholder="Enter Student ID"/>
+                <label>Student Number</label>
+                <input type="text"
+                       name="studentNumber"
+                       th:field="${student.studentNumber}"
+                       class="form-control"
+                       placeholder="Enter Student Number"/>
+                <label>First Name</label>
+                <input type="text"
+                       name="firstName"
+                       th:field="${student.firstName}"
+                       class="form-control"
+                       placeholder="Enter First Name"/>
+                <label>Middle Name</label>
+                <input type="text"
+                       name="middleName"
+                       th:field="${student.middleName}"
+                       class="form-control"
+                       placeholder="Enter Middle Name"/>
+                <label>Last Name</label>
+                <input type="text"
+                       name="lastName"
+                       th:field="${student.lastName}"
+                       class="form-control"
+                       placeholder="Enter Last Name"/>
+                <label>Cgpa</label>
+                <input type="text"
+                       name="cgpa"
+                       th:field="${student.cgpa}"
+                       class="form-control"
+                       placeholder="Enter GPA"/>
+                <label>Date of Enrollment</label>
+                <input type="date"
+                       name="dateOfEnrollment"
+                       th:field="${student.dateOfEnrollment}"
+                       class="form-control"
+                       placeholder="Enter Date Of Enrollment"/>
+            </div>
+            <div class="box-footer">
+                <br>
+                <button id="btnSubmit" type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+<footer th:replace ="~{public/fragments/footer :: footer}"></footer>
+</body>
+
+</html>
